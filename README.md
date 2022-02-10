@@ -1,1 +1,1 @@
-# CRUD project
+# CRUD app
