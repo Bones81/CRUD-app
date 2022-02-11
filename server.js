@@ -52,6 +52,10 @@ app.get('/' , (req, res) => {
   res.send('Hello World!');
 });
 
+app.get('/venues', (req, res) => {
+  res.send('venues list page')
+})
+
 //___________________
 //Listener
 //___________________
