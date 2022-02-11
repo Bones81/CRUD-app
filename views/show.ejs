@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('./partials/head.ejs')%>
+</head>
+<body>
+  <%- include('./partials/header.ejs')%>
+  <main>
+    <img src="<%=venue.outsideImg%>" alt="image of the outside of <%=venue.name%>">
+    <img src="<%=venue.insideImg%>" alt="image of the inside of <%=venue.name%>">
+    <table>
+      <thead colspan="2">
+        <td><%=venue.name%></td>
+      </thead>
+      <tr>
+        <td class="td-label">Venue Type</td>
+        <td class="td-data"><%=venue.type%></td>
+      </tr>
+      <tr>
+        <td class="td-label">Year Built</td>
+        <td class="td-data"><%=venue.yearBuilt%></td>
+      </tr>
+      <tr>
+        <td class="td-label">Capacity</td>
+        <td class="td-data"><%=venue.capacity%></td>
+      </tr>
+      <tr>
+        <td class="td-label">Cost to Build</td>
+        <td class="td-data"><%=venue.costToBuild%></td>
+      </tr>
+      <tr>
+        <td class="td-label">Active</td>
+        <% if (venue.stillExists === true) { %>
+          <td class="td-data">Yes</td>
+        <% } else if (venue.stillExists === false) { %>
+          <td class="td-data">No</td>
+        <% } else { %>
+          <td class="td-data">Info not entered in database</td>
+        <% } %>
+      </tr>
+      <tr>
+        <td class="td-label">Primary Sport</td>
+        <td class="td-data"><%=venue.pSport%></td>
+      </tr>
+      <tr>
+        <td class="td-label">Primary Team</td>
+        <td class="td-data"><%=venue.pTeam%></td>
+      </tr>
+      <tr>
+        <td class="td-label">Nicknames</td>
+        <td class="td-data"><%=venue.nicknames.join(', ')%></td>
+      </tr>
+      <tr>
+        <td class="td-label">City</td>
+        <td class="td-data"><%=venue.city%></td>
+      </tr>
+      <tr>
+        <td class="td-label">State</td>
+        <td class="td-data"><%=venue.state%></td>
+      </tr>
+      <tr>
+        <td class="td-label">Country</td>
+        <td class="td-data"><%=venue.country%></td>
+      </tr>
+      <tr>
+        <td class="td-label">Social Media Links</td>
+        <td class="td-data">
+            <a href="<%=venue.socialLinks.twitter%>" class="twitter-link social-link">
+              <!--Insert Twitter Icon here-->
+            </a>
+            <a href="<%=venue.socialLinks.fb%>" class="fb-link social-link">
+              <!--Insert FB Icon here-->
+            </a>
+            <a href="<%=venue.socialLinks.ig%>" class="ig-link social-link">
+              <!--Insert Instagram Icon here-->
+            </a>        
+        </td>
+      </tr>
+    </table>
+    <!-- YOUTUBE EMBED GOES HERE
+      <iframe src="<%=venue.highlightURL%>" frameborder="0"></iframe> 
+    -->
+    <!-- GOOGLE MAPS EMBED GOES HERE 
+      <embed src="" type="">
+    -->
+    <!-- Edit button -->
+    <a href="/venues/<%=venue.id%>/edit"><button>Edit Venue</button></a>
+
+    <!-- DELETE button -->
+    <form action="/venues?_method=DELETE" method="POST">
+      <input type="submit" value="DELETE venue (cannot be undone)">
+    </form>
+
+  </main>
+</body>
+</html>

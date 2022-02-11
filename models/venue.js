@@ -3,14 +3,14 @@ const Schema = mongoose.Schema
 
 const venueSchema = new Schema({
   name: {type: String, required: true, unique: true },
-  venueType: {type: String},
-  yearBuilt: {type: String},
+  type: {type: String},
+  year: {type: String},
   capacity: {type: Number},
-  costToBuild: {type: Number},
+  cost: {type: Number},
   nicknames: [String],
   stillExists: Boolean,
   pSport: {type: String},
-  pTeams: {type: String},
+  pTeam: {type: String},
   sSports: [String],
   sTeams: [String],
   city: {type: String},

@@ -4,9 +4,12 @@
 const express = require('express');
 const methodOverride  = require('method-override');
 const mongoose = require ('mongoose');
+const Venue = require('./models/venue.js');
 const app = express ();
 const db = mongoose.connection;
 require('dotenv').config()
+
+const venueSeedData = require('./models/seedVenues.js')
 //___________________
 //Port
 //___________________
@@ -28,6 +31,15 @@ mongoose.connect(MONGODB_URI);
 db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));
 db.on('connected', () => console.log('mongo connected: ', MONGODB_URI));
 db.on('disconnected', () => console.log('mongo disconnected'));
+
+// Seed initial data
+// Venue.create(venueSeedData, (err, venues) => {
+//   if (err) {console.log(err);}
+//   console.log('VENUE SEED DATA ADDED');
+// })
+
+// Drop collection
+// Venue.collection.drop()
 
 //___________________
 //Middleware
@@ -53,7 +65,21 @@ app.get('/' , (req, res) => {
 });
 
 app.get('/venues', (req, res) => {
-  res.send('venues list page')
+  Venue.find({}, (err, allVenues) => {
+    res.render('index.ejs', {
+      tabTitle: 'Venues Home Page',
+      venues: allVenues
+    })
+  })
+})
+
+app.get('/venues/:id', (req, res) => {
+  Venue.findById(req.params.id, (err, foundVenue) => {
+    res.render('show.ejs', {
+      tabTitle: foundVenue.name + ' | Details',
+      venue: foundVenue,
+    })
+  })
 })
 
 //___________________
