@@ -20,7 +20,8 @@ const venueSchema = new Schema({
   insideImg: {type: String},
   highlightURL: {type: String},
   mapsURL: {type: String},
-  socialLinks: {
+  links: {
+    website: {type: String},
     twitter: {type: String},
     fb: {type: String},
     ig: {type: String},

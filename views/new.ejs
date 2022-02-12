@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('./partials/head.ejs')%>
+</head>
+<body>
+  <header>
+    <%- include('./partials/header.ejs')%>
+  </header>
+  <main id="new-main">
+    <h2 class="page-title">Add a New Venue</h2>
+    <form action="/venues" method="POST">
+      <label for="venue-name">Name of Venue (required) </label>
+      <input type="text" name="name" id="venue-name" placeholder="Busch Stadium" size="30"><br/>
+      <label for="venue-type">Type of Venue (stadium, arena, course, pool, etc.) </label>
+      <input type="text" name="type" id="venue-type" placeholder="Stadium" size="30"><br/>
+      <label for="venue-year">Year of Construction </label>
+      <input type="text" name="year" id="venue-year" placeholder="2006" size="4"><br/>
+      <label for="venue-capacity">Capacity </label>
+      <input type="text" name="capacity" id="venue-capacity" placeholder="45,594" size="15"><br/>
+      <label for="venue-cost">Construction Cost $</label>
+      <input type="text" name="cost" id="venue-cost" placeholder="365,000,000" size="20"><br/>
+      <label for="venue-nicknames">Venue Nickname(s) (separate multiple entries with a comma and space) </label>
+      <input type="text" name="nicknames" placeholder="New Busch Stadium, Busch Stadium III" size="30"><br/>
+      <input type="checkbox" id="still-in-use" name="stillExists">
+      <label for="still-in-use">Venue still in use?</label><br/>
+      <label for="primary-sport">Venue's primary sport </label>
+      <input type="text" name="pSport" placeholder="baseball" size="15"><br/>
+      <label for="venue-pTeam">Venue's primary team/tenant </label>
+      <input type="text" name="pTeam" id="venue-pTeam" placeholder="St. Louis Cardinals" size="30"><br/>
+      <label for="venue-sSports">Other sports (separate multiple entries with a comma and space) </label>
+      <input type="text" name="sSports" id="venue-sSports" placeholder="soccer, hockey, football" size="30"><br/>
+      <label for="venue-sTeams">Other teams/tenants (separate multiple entries with a comma and space) </label>
+      <input type="text" name="sTeams" id="venue-sTeams" placeholder="St. Louis Blues, USWNT, USMNT, Southern Illinois University" size="50"><br/>
+      <label for="venue-city">City </label>
+      <input type="text" name="city" id="venue-city" placeholder="St. Louis" size="20"><br/>
+      <label for="venue-state">State (or Province) </label>
+      <input type="text" name="state" id="venue-state" placeholder="Missouri" size="20"><br/>
+      <label for="venue-country">Country </label>
+      <input type="text" name="country" id="venue-country" placeholder="USA" size="20"><br/>
+      <label for="venue-oImg">Picture of Venue from outside (enter image url) </label>
+      <input type="url" name="outsideImg" id="venue-oImg" placeholder="https://pbs.twimg.com/media/EydUb4IXAAcJM2t?format=jpg&name=large" size="50"><br/>
+      <label for="venue-iImg">Picture of Venue from inside (enter image url) </label>
+      <input type="url" name="insideImg" id="venue-iImg" placeholder="https://www.stlmag.com/downloads/315861/download/Busch%20Stadium%20.jpg?cb=dc895e8018195e9d9e7284b9b5f6dd46&w=1726" size="50"><br/>
+      <label for="venue-highlight">YouTube link to an historic moment that occurred at this venue </label>
+      <input type="url" name="highlightURL" id="venue-highlight" placeholder="https://youtu.be/fJ86nJR9aFw" size="50"><br/>
+      <label for="venue-mapsURL">Google Maps link </label>
+      <input type="url" name="mapsURL" id="venue-mapsURL" placeholder="https://www.google.com/maps/place/Busch+Stadium/@38.6227225,-90.1948363,589m/data=!3m1!1e3!4m5!3m4!1s0x87d8b31b440bcf17:0xa57962d7e3509f27!8m2!3d38.6226188!4d-90.1928209?hl=en" size="50"><br/>
+      <label for="venue-website">Venue Website </label>
+      <input type="url" name="website" id="venue-website" placeholder="https://www.mlb.com/cardinals/ballpark" size="50"><br/>
+      <label for="venue-twitter">Venue on Twitter </label>
+      <input type="url" name="twitter" id="venue-twitter" placeholder="https://twitter.com/buschstadiumiii" size="50"><br/>
+      <label for="venue-fb">Venue on Facebook </label>
+      <input type="url" name="fb" id="venue-fb" placeholder="https://www.facebook.com/Busch-Stadium-119956968054122/" size="50"><br/>
+      <label for="venue-ig">Venue on Instagram </label>
+      <input type="url" name="ig" id="venue-ig" placeholder="https://www.instagram.com/busch__stadium/" size="50"><br/>
+      <input type="submit" value="Add New Venue With These Values">
+    </form>
+  </main>
+</body>
+</html>

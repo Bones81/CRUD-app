@@ -47,6 +47,14 @@
         <td class="td-data"><%=venue.pTeam%></td>
       </tr>
       <tr>
+        <td class="td-label">Secondary Sports</td>
+        <td class="td-data"><%=venue.sSports.join(', ')%></td>
+      </tr>
+      <tr>
+        <td class="td-label">Secondary Teams</td>
+        <td class="td-data"><%=venue.sTeams.join(', ')%></td>
+      </tr>
+      <tr>
         <td class="td-label">Nicknames</td>
         <td class="td-data"><%=venue.nicknames.join(', ')%></td>
       </tr>
@@ -63,16 +71,20 @@
         <td class="td-data"><%=venue.country%></td>
       </tr>
       <tr>
-        <td class="td-label">Social Media Links</td>
+        <td class="td-label">Links</td>
         <td class="td-data">
-            <a href="<%=venue.socialLinks.twitter%>" class="twitter-link social-link">
+            <a href="<%=venue.links.website%>" target="_blank">Venue Website</a>
+            <a href="<%=venue.links.twitter%>" target="_blank" class="twitter-link social-link">
               <!--Insert Twitter Icon here-->
+              Twitter
             </a>
-            <a href="<%=venue.socialLinks.fb%>" class="fb-link social-link">
+            <a href="<%=venue.links.fb%>" target="_blank" class="fb-link social-link">
               <!--Insert FB Icon here-->
+              Facebook
             </a>
-            <a href="<%=venue.socialLinks.ig%>" class="ig-link social-link">
+            <a href="<%=venue.links.ig%>" target="_blank" class="ig-link social-link">
               <!--Insert Instagram Icon here-->
+              Instagram
             </a>        
         </td>
       </tr>

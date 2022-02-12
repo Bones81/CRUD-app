@@ -18,7 +18,8 @@ module.exports = [
     insideImg: '',
     highlightURL: '',
     mapsURL: '',
-    socialLinks: {
+    links: {
+      website: 'https://www.msg.com/madison-square-garden',
       twitter: '',
       fb: '',
       ig: ''
@@ -43,7 +44,8 @@ module.exports = [
     insideImg: '',
     highlightURL: '',
     mapsURL: '',
-    socialLinks: {
+    links: {
+      website: '',
       twitter: '',
       fb: '',
       ig: ''
@@ -68,7 +70,8 @@ module.exports = [
     insideImg: '',
     highlightURL: '',
     mapsURL: '',
-    socialLinks: {
+    links: {
+      website: '',
       twitter: '',
       fb: '',
       ig: ''

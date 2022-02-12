@@ -9,6 +9,9 @@
   </header>
   <main>
     <h2>List of Venues</h2><!--May replace w variable, eventually-->
+    <% if (newVenue) { %> 
+      <h3 id="new-venue-added-text">New Venue Created! <a href="/venues/<%=newVenue.id%>"><%=newVenue.name%></a></h3>
+    <% } %>
     <div class="container">
       <% for (let venue of venues) { %> 
         <div class="card">
@@ -18,7 +21,7 @@
             <h4>Built: <%=venue.year%></h4>
             <h4>Capacity: <%=venue.capacity%></h4>
             <h4>Primary sport: <%=venue.pSport%></h4>
-            <h4>Primary home team:<%=venue.pTeam%></h4>
+            <h4>Primary home team: <%=venue.pTeam%></h4>
           </a>
         </div>
       <% } %>
