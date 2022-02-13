@@ -76,8 +76,6 @@ app.get('/venues', (req, res) => {
     res.render('index.ejs', {
       tabTitle: 'Venues Home Page',
       venues: allVenues,
-      newVenue: false,
-      updatedVenue: false
     })
   })
 })
@@ -119,17 +117,9 @@ app.post('/venues', (req, res) => {
   req.body.links.fb = req.body.fb
   req.body.links.ig = req.body.ig
 
-
   // res.send(req.body)
   Venue.create(req.body, (err, createdVenue) => {
-    Venue.find({}, (err, allVenues) => {
-      res.render('index.ejs', {
-        tabTitle: 'Venues Home Page',
-        venues: allVenues,
-        newVenue: createdVenue,
-        updatedVenue: false,
-      })
-    })
+    res.redirect('/venues')
   })
 })
 
@@ -158,19 +148,34 @@ app.put('/venues/:id', (req, res) => {
   req.body.sTeams = req.body.sTeams.split(', ')
   
   req.body.links = {} // must initialize 'links' as a key of the data object before you can assign values to it!
-  req.body.links.website = req.body.website
-  req.body.links.twitter = req.body.twitter
-  req.body.links.fb = req.body.fb
-  req.body.links.ig = req.body.ig
+  if (req.body.website.length === 0) {
+    req.body.links.website = '#' // sets link to dummy link if no value provided
+  } else {
+    req.body.links.website = req.body.website
+  }
+  if (req.body.twitter.length === 0) {
+    req.body.links.twitter = '#'
+  } else {
+    req.body.links.twitter = req.body.twitter
+  }
+  if (req.body.fb.length === 0) {
+    req.body.links.fb = '#'
+  } else {
+    req.body.links.fb = req.body.fb
+  }
+  if (req.body.ig.length === 0) {
+    req.body.links.ig = '#'
+  } else {
+    req.body.links.ig = req.body.ig
+  }
   Venue.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, foundVenue) => {
-    Venue.find({}, (err, allVenues) => {
-      res.render('index.ejs', {
-        tabTitle: 'Venues List',
-        newVenue: false,
-        updatedVenue: foundVenue,
-        venues: allVenues,
-      })
-    })
+    res.redirect('/venues')
+  })
+})
+
+app.delete('/venues/:id', (req, res) => {
+  Venue.findByIdAndRemove(req.params.id, (err, droppedVenue) => {
+    res.redirect('/venues')
   })
 })
 

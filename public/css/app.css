@@ -48,11 +48,19 @@
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
+#start-main img {
+  max-width: 250px;
+}
+
 .extra-img {
   display: none;
 }
 
 /* HEADER */
+header img {
+  max-width: 100px;
+}
+
 header h1 {
   font-size: 2.5em;
   font-weight: bold;
@@ -91,7 +99,7 @@ table, tr, td, thead {
 }
 
 /* AT 400PX, CHANGE THE FOLLOWING: */
-@media (min-width: 400px) {
+@media (min-width: 600px) {
   .extra-img:nth-of-type(2n) {
     display: inline;
   }

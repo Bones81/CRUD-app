@@ -9,13 +9,17 @@
   </header>
   <main id="show-main">
     <h2 class="page-title"><%=venue.name%></h2>
-    <img class="show-img" src="<%=venue.outsideImg%>" alt="image of the outside of <%=venue.name%>">
-    <img class="show-img" src="<%=venue.insideImg%>" alt="image of the inside of <%=venue.name%>">
+    <% if (venue.outsideImg !== '') { %> 
+      <img class="show-img" src="<%=venue.outsideImg%>" alt="image of the outside of <%=venue.name%>">
+    <% } %>
+    <% if (venue.insideImg !== '') { %> 
+      <img class="show-img" src="<%=venue.insideImg%>" alt="image of the inside of <%=venue.name%>">
+    <% } %>
     <table>
-      <thead>
+      <tr>
         <td class="td-label">Venue Name </td>
         <td class="td-data"><%=venue.name%></td>
-      </thead>
+      </tr>
       <tr>
         <td class="td-label">Venue Type </td>
         <td class="td-data"><%=venue.type%></td>
@@ -77,34 +81,63 @@
       <tr>
         <td class="td-label">Links </td>
         <td class="td-data">
-          <a href="<%=venue.links.website%>" target="_blank">Venue Website</a>
-        </td>
+          <a href="<%=venue.links.website%>" 
+          <% if(venue.links.website !== '#') { %> 
+            target="_blank"
+            >Venue Website
+          </a>
+          <% } else { %>
+            style="display:none">
+          </a>
+          <% } %>
+          </td>
       </tr>
       <tr>
         <td class="td-data"></td>
         <td class="td-data">
-          <a href="<%=venue.links.twitter%>" target="_blank" class="twitter-link social-link">
+          <a href="<%=venue.links.twitter%>" class="twitter-link social-link" 
+          <% if(venue.links.twitter !== '#') { %> 
+            target="_blank"
+            >
             <!--Insert Twitter Icon here-->
             Twitter
           </a>
+          <% } else { %>
+            style="display:none">
+          </a>
+          <% } %>
         </td>
       </tr>
       <tr>
         <td class="td-data"></td>
         <td class="td-data">
-          <a href="<%=venue.links.fb%>" target="_blank" class="fb-link social-link">
+          <a href="<%=venue.links.fb%>" class="fb-link social-link" 
+          <% if (venue.links.fb !== '#') { %>
+            target="_blank" 
+            >
             <!--Insert FB Icon here-->
             Facebook
           </a>
+          <% } else { %>
+            style="display: none">
+          </a>
+          <% } %>
         </td>
       </tr>
       <tr>
         <td class="td-data"></td>
         <td class="td-data">
-            <a href="<%=venue.links.ig%>" target="_blank" class="ig-link social-link">
-            <!--Insert Instagram Icon here-->
-            Instagram
-          </a>        
+          <a href="<%=venue.links.ig%>" class="ig-link social-link"
+            <% if(venue.links.ig !== '#') { %>
+              target="_blank" 
+              >
+              <!--Insert Instagram Icon here-->
+              Instagram
+            </a>        
+            <% } else { %>
+              style="display: none">
+            </a> 
+            <% } %>
         </td>
       </tr>
     </table>
@@ -118,7 +151,7 @@
     <a href="/venues/<%=venue.id%>/edit"><button>Edit Venue</button></a>
 
     <!-- DELETE button -->
-    <form action="/venues?_method=DELETE" method="POST">
+    <form action="/venues/<%=venue.id%>?_method=DELETE" method="POST">
       <input type="submit" value="DELETE venue (cannot be undone)">
     </form>
 
