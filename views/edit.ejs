@@ -9,7 +9,7 @@
   </header>
   <main id="edit-main">
     <h2 class="page-title">Add a New Venue</h2>
-    <form action="/venues" method="POST">
+    <form action="/venues/<%=venue._id%>?_method=PUT" method="POST">
       <label for="venue-name">Name of Venue (required) </label>
       <input type="text" name="name" id="venue-name" value="<%=venue.name%>" size="30"><br/>
       <label for="venue-type">Type of Venue (stadium, arena, course, pool, etc.) </label>

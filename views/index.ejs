@@ -7,11 +7,14 @@
   <header>
     <%- include('./partials/header.ejs')%>
   </header>
-  <main>
-    <h2>List of Venues</h2><!--May replace w variable, eventually-->
+  <main id="index-main">
+    <h2 class="page-title">List of Venues</h2><!--May replace w variable, eventually-->
     <% if (newVenue) { %> 
       <h3 id="new-venue-added-text">New Venue Created! <a href="/venues/<%=newVenue.id%>"><%=newVenue.name%></a></h3>
+    <% } else if (updatedVenue) { %>
+      <h3 id="venue-updated-text">Venue updated! <a href="/venues/<%=updatedVenue.id%>%>"><%=updatedVenue.name%></a></h3>
     <% } %>
+
     <div class="container">
       <% for (let venue of venues) { %> 
         <div class="card">

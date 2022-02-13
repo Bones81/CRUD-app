@@ -4,32 +4,36 @@
   <%- include('./partials/head.ejs')%>
 </head>
 <body>
-  <%- include('./partials/header.ejs')%>
-  <main>
-    <img src="<%=venue.outsideImg%>" alt="image of the outside of <%=venue.name%>">
-    <img src="<%=venue.insideImg%>" alt="image of the inside of <%=venue.name%>">
+  <header>
+    <%- include('./partials/header.ejs')%>
+  </header>
+  <main id="show-main">
+    <h2 class="page-title"><%=venue.name%></h2>
+    <img class="show-img" src="<%=venue.outsideImg%>" alt="image of the outside of <%=venue.name%>">
+    <img class="show-img" src="<%=venue.insideImg%>" alt="image of the inside of <%=venue.name%>">
     <table>
-      <thead colspan="2">
-        <td><%=venue.name%></td>
+      <thead>
+        <td class="td-label">Venue Name </td>
+        <td class="td-data"><%=venue.name%></td>
       </thead>
       <tr>
-        <td class="td-label">Venue Type</td>
+        <td class="td-label">Venue Type </td>
         <td class="td-data"><%=venue.type%></td>
       </tr>
       <tr>
-        <td class="td-label">Year Built</td>
-        <td class="td-data"><%=venue.yearBuilt%></td>
+        <td class="td-label">Year Built </td>
+        <td class="td-data"><%=venue.year%></td>
       </tr>
       <tr>
-        <td class="td-label">Capacity</td>
+        <td class="td-label">Capacity </td>
         <td class="td-data"><%=venue.capacity%></td>
       </tr>
       <tr>
-        <td class="td-label">Cost to Build</td>
-        <td class="td-data"><%=venue.costToBuild%></td>
+        <td class="td-label">Cost to Build </td>
+        <td class="td-data">$<%=venue.cost%></td>
       </tr>
       <tr>
-        <td class="td-label">Active</td>
+        <td class="td-label">Active </td>
         <% if (venue.stillExists === true) { %>
           <td class="td-data">Yes</td>
         <% } else if (venue.stillExists === false) { %>
@@ -39,39 +43,39 @@
         <% } %>
       </tr>
       <tr>
-        <td class="td-label">Primary Sport</td>
+        <td class="td-label">Primary Sport </td>
         <td class="td-data"><%=venue.pSport%></td>
       </tr>
       <tr>
-        <td class="td-label">Primary Team</td>
+        <td class="td-label">Primary Team </td>
         <td class="td-data"><%=venue.pTeam%></td>
       </tr>
       <tr>
-        <td class="td-label">Secondary Sports</td>
+        <td class="td-label">Secondary Sports </td>
         <td class="td-data"><%=venue.sSports.join(', ')%></td>
       </tr>
       <tr>
-        <td class="td-label">Secondary Teams</td>
+        <td class="td-label">Secondary Teams </td>
         <td class="td-data"><%=venue.sTeams.join(', ')%></td>
       </tr>
       <tr>
-        <td class="td-label">Nicknames</td>
+        <td class="td-label">Nicknames </td>
         <td class="td-data"><%=venue.nicknames.join(', ')%></td>
       </tr>
       <tr>
-        <td class="td-label">City</td>
+        <td class="td-label">City </td>
         <td class="td-data"><%=venue.city%></td>
       </tr>
       <tr>
-        <td class="td-label">State</td>
+        <td class="td-label">State </td>
         <td class="td-data"><%=venue.state%></td>
       </tr>
       <tr>
-        <td class="td-label">Country</td>
+        <td class="td-label">Country </td>
         <td class="td-data"><%=venue.country%></td>
       </tr>
       <tr>
-        <td class="td-label">Links</td>
+        <td class="td-label">Links </td>
         <td class="td-data">
           <a href="<%=venue.links.website%>" target="_blank">Venue Website</a>
         </td>

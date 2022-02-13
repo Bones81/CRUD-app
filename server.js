@@ -76,7 +76,8 @@ app.get('/venues', (req, res) => {
     res.render('index.ejs', {
       tabTitle: 'Venues Home Page',
       venues: allVenues,
-      newVenue: false
+      newVenue: false,
+      updatedVenue: false
     })
   })
 })
@@ -125,7 +126,8 @@ app.post('/venues', (req, res) => {
       res.render('index.ejs', {
         tabTitle: 'Venues Home Page',
         venues: allVenues,
-        newVenue: createdVenue
+        newVenue: createdVenue,
+        updatedVenue: false,
       })
     })
   })
@@ -137,6 +139,37 @@ app.get('/venues/:id/edit', (req, res) => {
     res.render('edit.ejs', {
       tabTitle: 'Edit ' + foundVenue.name,
       venue: foundVenue
+    })
+  })
+})
+
+// UPDATE ROUTE
+app.put('/venues/:id', (req, res) => {
+  //reformat form data to match schema
+  req.body.capacity = Number(req.body.capacity)
+  req.body.cost = Number(req.body.cost)
+  req.body.nicknames = req.body.nicknames.split(', ')
+  if(req.body.stillExists === "on") {
+    req.body.stillExists = true 
+  } else {
+    req.body.stillExists = false
+  }
+  req.body.sSports = req.body.sSports.split(', ')
+  req.body.sTeams = req.body.sTeams.split(', ')
+  
+  req.body.links = {} // must initialize 'links' as a key of the data object before you can assign values to it!
+  req.body.links.website = req.body.website
+  req.body.links.twitter = req.body.twitter
+  req.body.links.fb = req.body.fb
+  req.body.links.ig = req.body.ig
+  Venue.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, foundVenue) => {
+    Venue.find({}, (err, allVenues) => {
+      res.render('index.ejs', {
+        tabTitle: 'Venues List',
+        newVenue: false,
+        updatedVenue: foundVenue,
+        venues: allVenues,
+      })
     })
   })
 })

@@ -52,6 +52,43 @@
   display: none;
 }
 
+/* HEADER */
+header h1 {
+  font-size: 2.5em;
+  font-weight: bold;
+  font-style: italic;
+}
+
+/* INDEX PAGE */
+#index-main {
+  text-align: center;
+}
+
+.page-title {
+  font-size: 1.75em;
+  background-color: var(--bs-blue);
+  text-align: center;
+}
+
+.card a {
+  text-decoration: none;
+  cursor: pointer;
+  color: black;
+}
+
+.card img {
+  max-width: 250px;
+}
+
+/* SHOW PAGE */
+.show-img {
+  max-width: 250px;
+}
+
+table, tr, td, thead {
+  border: 1px solid green;
+  font-size: 0.9em;
+}
 
 /* AT 400PX, CHANGE THE FOLLOWING: */
 @media (min-width: 400px) {
