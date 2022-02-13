@@ -73,9 +73,12 @@ app.get('/' , (req, res) => {
 // INDEX ROUTE
 app.get('/venues', (req, res) => {
   Venue.find({}, (err, allVenues) => {
-    res.render('index.ejs', {
-      tabTitle: 'Venues Home Page',
-      venues: allVenues,
+    Venue.countDocuments({}, (err, count) => {
+      res.render('index.ejs', {
+        tabTitle: 'Venues Home Page',
+        venues: allVenues,
+        venuesCount: count
+      })
     })
   })
 })
