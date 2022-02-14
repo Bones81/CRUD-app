@@ -114,8 +114,6 @@ app.post('/venues', (req, res) => {
   req.body.sSports = req.body.sSports.split(', ')
   req.body.sTeams = req.body.sTeams.split(', ')
   
-  console.log(req.body.highlightURL.split('https://www.youtube.com/'))
-
   req.body.links = {} // must initialize 'links' as a key of the data object before you can assign values to it!
   req.body.links.website = req.body.website
   req.body.links.twitter = req.body.twitter
