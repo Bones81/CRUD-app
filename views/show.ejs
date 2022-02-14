@@ -141,9 +141,14 @@
         </td>
       </tr>
     </table>
-    <!-- YOUTUBE EMBED GOES HERE
-      <iframe src="<%=venue.highlightURL%>" frameborder="0"></iframe> 
-    -->
+    <!-- YOUTUBE EMBED GOES HERE-->
+    <% if (venue.highlightURL !== "") { 
+      const splitURL = venue.highlightURL.split('/'); 
+      const videoID = splitURL[splitURL.length - 1];
+      console.log(videoID); %>
+      <iframe src="https://youtube.com/embed/<%=videoID%>" title="video of <%=venue.name%> highlight(s)" width="300" height="225" frameborder="0"></iframe></br>
+    <% } %>
+    
     <!-- GOOGLE MAPS EMBED GOES HERE 
       <embed src="" type="">
     -->

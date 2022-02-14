@@ -114,6 +114,8 @@ app.post('/venues', (req, res) => {
   req.body.sSports = req.body.sSports.split(', ')
   req.body.sTeams = req.body.sTeams.split(', ')
   
+  console.log(req.body.highlightURL.split('https://www.youtube.com/'))
+
   req.body.links = {} // must initialize 'links' as a key of the data object before you can assign values to it!
   req.body.links.website = req.body.website
   req.body.links.twitter = req.body.twitter
@@ -149,7 +151,7 @@ app.put('/venues/:id', (req, res) => {
   }
   req.body.sSports = req.body.sSports.split(', ')
   req.body.sTeams = req.body.sTeams.split(', ')
-  
+
   req.body.links = {} // must initialize 'links' as a key of the data object before you can assign values to it!
   if (req.body.website.length === 0) {
     req.body.links.website = '#' // sets link to dummy link if no value provided
