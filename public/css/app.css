@@ -138,7 +138,7 @@ header li:hover {
 
 .card {
   background-image: url(https://previews.123rf.com/images/red33/red331302/red33130200013/17904433-%E3%82%B9%E3%83%9D%E3%83%BC%E3%83%84%E3%81%AE%E3%82%B7%E3%83%BC%E3%83%A0%E3%83%AC%E3%82%B9%E3%81%AA%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3-%E3%83%99%E3%82%AF%E3%83%88%E3%83%AB.jpg);
-  background-size: cover;
+  background-size: contain;
   background-position: center;
   background-repeat: repeat;
 
@@ -164,8 +164,8 @@ header li:hover {
 /* SHOW PAGE */
 #show-main {
   background-image: url(https://previews.123rf.com/images/red33/red331302/red33130200013/17904433-%E3%82%B9%E3%83%9D%E3%83%BC%E3%83%84%E3%81%AE%E3%82%B7%E3%83%BC%E3%83%A0%E3%83%AC%E3%82%B9%E3%81%AA%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3-%E3%83%99%E3%82%AF%E3%83%88%E3%83%AB.jpg);
+  background-size: contain;
   background-position: center;
-  background-size: cover;
   background-repeat: repeat;
 }
 
