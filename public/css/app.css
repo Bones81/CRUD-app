@@ -57,17 +57,34 @@
 }
 
 /* HEADER */
+header {
+  background: linear-gradient(225deg, lightgreen, var(--bs-cyan))
+}
+.header-wrapper {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-around;
+}
+
 header img {
   max-width: 100px;
-  display: block;
+  display: inline;
   margin: 0 auto;
+  order: 1;
+  border-radius: 50%;
 }
 
 header h1 {
+  float: right;
   font-size: 2em;
   font-weight: bold;
   font-style: italic;
   text-align: center;
+  margin: 0;
+  color: var(--bs-blue);
+  width: 50%;
+  order: 2;
 }
 
 header ul {
@@ -75,16 +92,28 @@ header ul {
   padding: 0;
   margin: 0 auto;
   width: fit-content;
+  display: flex;
+  flex-flow: row wrap;
+  gap: 1em;
+  margin: 0 auto;
 }
 
 header a {
   text-decoration: none;
   transition: all 0.3s;
+  color: var(--bs-body-color)
 }
 
 header a:hover {
-  transform: scale(1.2);
   color: var(--bs-cyan)
+}
+
+header li {
+  transition: all 0.3s;
+}
+
+header li:hover {
+  transform: scale(1.2);
 }
 
 /* INDEX PAGE */
@@ -96,6 +125,30 @@ header a:hover {
   font-size: 1.75em;
   background-color: var(--bs-blue);
   text-align: center;
+  padding: 0.5em;
+}
+
+#index-main h3 {
+  font-size: calc(1rem + 0.6vw);
+}
+
+#index-main h4 {
+  font-size: calc(0.75rem + .3vw);
+}
+
+.card {
+  background-image: url(https://previews.123rf.com/images/red33/red331302/red33130200013/17904433-%E3%82%B9%E3%83%9D%E3%83%BC%E3%83%84%E3%81%AE%E3%82%B7%E3%83%BC%E3%83%A0%E3%83%AC%E3%82%B9%E3%81%AA%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3-%E3%83%99%E3%82%AF%E3%83%88%E3%83%AB.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+
+}
+
+.card-content-wrapper {
+  background: rgba(255,255,255,0.6);
+  width: fit-content;
+  margin: 0 auto;
+  padding: 0.5em;
 }
 
 .card a {
@@ -183,6 +236,11 @@ a.btn-primary {
   margin: 0 auto;
   text-align: center;
 } 
+
+/* NEW/EDIT FORMS */
+form {
+  font-size: calc(0.75rem);
+}
 
 /* AT 400PX, CHANGE THE FOLLOWING: */
 @media (min-width: 600px) {

@@ -9,18 +9,25 @@
   </header>
   <main id="index-main">
     <h2 class="page-title">List of Venues</h2><!--May replace w variable, eventually-->
-    <h3></h3>
     <h3>Current number of venues in database: <span class="counter"><%=venuesCount%></span></h3>
     <div class="container">
       <% for (let venue of venues) { %> 
-        <div class="card">
+        <div class="card"
+        <% 
+          const sportArray = ['football','hockey','soccer','baseball','basketball','golf','olympics'];
+          if (sportArray.includes(venue.pSport.toLowerCase())) { %>
+            style="background-image:url('/img/<%=venue.pSport.toLowerCase()%>.jpeg')"
+        <% } %>
+        >
           <a href="/venues/<%=venue.id%>">
             <img src="<%=venue.outsideImg%>" alt="pic of <%=venue.name%>">
-            <h3><%=venue.name%></h3>
-            <h4>Built: <%=venue.year%></h4>
-            <h4>Capacity: <%=venue.capacity%></h4>
-            <h4>Primary sport: <%=venue.pSport%></h4>
-            <h4>Primary home team: <%=venue.pTeam%></h4>
+            <div class="card-content-wrapper">
+              <h3><%=venue.name%></h3>
+              <h4>Built: <%=venue.year%></h4>
+              <h4>Capacity: <%=venue.capacity%></h4>
+              <h4>Primary sport: <%=venue.pSport%></h4>
+              <h4>Primary home team: <%=venue.pTeam%></h4>
+            </div>
           </a>
         </div>
       <% } %>

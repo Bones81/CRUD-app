@@ -8,16 +8,10 @@
     <%- include('./partials/header.ejs')%>
   </header>
   <main id="show-main"
-    <% if(venue.pSport.toLowerCase() === 'baseball') { %> 
-      style="background-image:url('/img/baseball.jpeg')"
-    <% } else if (venue.pSport.toLowerCase() === 'basketball') { %>
-      style="background-image:url('/img/basketball.jpeg')"
-    <% } else if (venue.pSport.toLowerCase() === 'football') { %>
-      style="background-image:url('/img/football.jpeg')"
-    <% } else if (venue.pSport.toLowerCase() === 'soccer') { %>
-      style="background-image:url('/img/soccer.jpeg')"
-    <% } else if (venue.pSport.toLowerCase() === 'golf') { %>
-      style="background-image:url('/img/golf.jpeg')"
+    <% 
+      const sportArray = ['football','hockey','soccer','baseball','basketball','golf','olympics'];
+    if (sportArray.includes(venue.pSport.toLowerCase())) { %>
+      style="background-image:url('/img/<%=venue.pSport.toLowerCase()%>.jpeg')"
     <% } %>
   >
     <h2 class="page-title"><%=venue.name%></h2>
@@ -107,7 +101,7 @@
       <tr>
         <td class="td-data"></td>
         <td class="td-data">
-          <a href="<%=venue.links.twitter%>" class="twitter-link social-link" 
+          <a href="https://www.twitter.com/<%=venue.links.twitter%>" class="twitter-link social-link" 
           <% if(venue.links.twitter !== '') { %> 
             target="_blank"
             >
@@ -123,7 +117,7 @@
       <tr>
         <td class="td-data"></td>
         <td class="td-data">
-          <a href="<%=venue.links.fb%>" class="fb-link social-link" 
+          <a href="https://www.facebook.com/<%=venue.links.fb%>" class="fb-link social-link" 
           <% if (venue.links.fb !== '') { %>
             target="_blank" 
             >
@@ -139,7 +133,7 @@
       <tr>
         <td class="td-data"></td>
         <td class="td-data">
-          <a href="<%=venue.links.ig%>" class="ig-link social-link"
+          <a href="https://www.instagram.com/<%=venue.links.ig%>" class="ig-link social-link"
             <% if(venue.links.ig !== '') { %>
               target="_blank" 
               >

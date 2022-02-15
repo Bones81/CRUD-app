@@ -35,29 +35,29 @@
       <label for="venue-sSports">Other sports (separate multiple entries with a comma and space) </label>
       <input type="text" name="sSports" id="venue-sSports" value="<%=venue.sSports.join(', ')%>" size="30"><br/>
       <label for="venue-sTeams">Other teams/tenants (separate multiple entries with a comma and space) </label>
-      <input type="text" name="sTeams" id="venue-sTeams" value="<%=venue.sTeams.join(', ')%>" size="50"><br/>
+      <input type="text" name="sTeams" id="venue-sTeams" value="<%=venue.sTeams.join(', ')%>" size="35"><br/>
       <label for="venue-city">City </label>
-      <input type="text" name="city" id="venue-city" value="<%=venue.city%>" size="20"><br/>
+      <input type="text" name="city" id="venue-city" value="<%=venue.city%>" size="15"><br/>
       <label for="venue-state">State (or Province) </label>
-      <input type="text" name="state" id="venue-state" value="<%=venue.state%>" size="20"><br/>
+      <input type="text" name="state" id="venue-state" value="<%=venue.state%>" size="10"><br/>
       <label for="venue-country">Country </label>
-      <input type="text" name="country" id="venue-country" value="<%=venue.country%>" size="20"><br/>
+      <input type="text" name="country" id="venue-country" value="<%=venue.country%>" size="10"><br/>
       <label for="venue-oImg">Picture of Venue from outside (enter image url) </label>
-      <input type="url" name="outsideImg" id="venue-oImg" value="<%=venue.outsideImg%>" size="50"><br/>
+      <input type="url" name="outsideImg" id="venue-oImg" value="<%=venue.outsideImg%>" size="35"><br/>
       <label for="venue-iImg">Picture of Venue from inside (enter image url) </label>
-      <input type="url" name="insideImg" id="venue-iImg" value="<%=venue.insideImg%>" size="50"><br/>
-      <label for="venue-highlight">YouTube link to an historic moment that occurred at this venue </label>
-      <input type="url" name="highlightURL" id="venue-highlight" value="<%=venue.highlightURL%>" size="50"><br/>
+      <input type="url" name="insideImg" id="venue-iImg" value="<%=venue.insideImg%>" size="35"><br/>
+      <label for="venue-highlight">YouTube link to historic moment(s) that occurred at this venue </label>
+      <input type="url" name="highlightURL" id="venue-highlight" value="<%=venue.highlightURL%>" size="30"><br/>
       <!-- <label for="venue-mapsURL">Google Maps link </label>
       <input type="url" name="mapsURL" id="venue-mapsURL" value="<%=venue.mapsURL%>" size="50"><br/> -->
       <label for="venue-website">Venue Website </label>
-      <input type="url" name="website" id="venue-website" value="<%=venue.links.website%>" size="50"><br/>
-      <label for="venue-twitter">Venue on Twitter </label>
-      <input type="url" name="twitter" id="venue-twitter" value="<%=venue.links.twitter%>" size="50"><br/>
-      <label for="venue-fb">Venue on Facebook </label>
-      <input type="url" name="fb" id="venue-fb" value="<%=venue.links.fb%>" size="50"><br/>
-      <label for="venue-ig">Venue on Instagram </label>
-      <input type="url" name="ig" id="venue-ig" value="<%=venue.links.ig%>" size="50"><br/>
+      <input type="url" name="website" id="venue-website" value="<%=venue.links.website%>" size="35"><br/>
+      <label for="venue-twitter">Venue Twitter handle @</label>
+      <input type="text" name="twitter" id="venue-twitter" value="<%=venue.links.twitter%>" size="20"><br/>
+      <label for="venue-fb">Venue Facebook handle @</label>
+      <input type="text" name="fb" id="venue-fb" value="<%=venue.links.fb%>" size="20"><br/>
+      <label for="venue-ig">Venue Instagram handle @</label>
+      <input type="text" name="ig" id="venue-ig" value="<%=venue.links.ig%>" size="20"><br/>
       <input type="submit" value="UPDATE Venue with These Values">
     </form>
   </main>
