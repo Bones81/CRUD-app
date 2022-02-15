@@ -164,9 +164,21 @@
       </div>
     <% } %>
     
-    <!-- GOOGLE MAPS EMBED GOES HERE 
-      <embed src="" type="">
-    -->
+    <!-- GOOGLE MAPS EMBED GOES HERE -->
+    <div class="wrapper">
+      <div class="h_iframe">
+        <iframe
+          width="600"
+          height="450"
+          style="border:0"
+          loading="lazy"
+          allowfullscreen
+          src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDPi8JMfy1GZjzQpFq1sPqzVMm6ASBLBTs
+            &q=<%=venue.name%>,<%=venue.city%>+<%=venue.state%>+<%=venue.country%>">
+        </iframe>
+      </div>
+    </div>
+   
     <!-- Edit button -->
     <a class="btn btn-primary" href="/venues/<%=venue.id%>/edit"><button>Edit Venue</button></a>
 

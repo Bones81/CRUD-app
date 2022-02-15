@@ -132,6 +132,10 @@ table, tr, td, thead {
 
 table {
   margin: 0 auto;
+  box-shadow: 2px 2px 2px var(--bs-green),
+              2px -2px 2px var(--bs-green),
+              -2px -2px 2px var(--bs-green),
+              -2px 2px 2px var(--bs-green);
 }
 
 /* The following Stack Overflow page helped me to come up with the below CSS necessary to resize my iframe dynamically: https://stackoverflow.com/questions/11122249/scale-iframe-css-width-100-like-an-image */
