@@ -14,5 +14,6 @@
 ## User Stories
 
 ## Notes to Self
-* Add YouTube link embed
-* Implement Google Maps API
+* add search
+* add sort
+* add media queries
