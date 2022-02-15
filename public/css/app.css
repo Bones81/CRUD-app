@@ -59,12 +59,32 @@
 /* HEADER */
 header img {
   max-width: 100px;
+  display: block;
+  margin: 0 auto;
 }
 
 header h1 {
-  font-size: 2.5em;
+  font-size: 2em;
   font-weight: bold;
   font-style: italic;
+  text-align: center;
+}
+
+header ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0 auto;
+  width: fit-content;
+}
+
+header a {
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+header a:hover {
+  transform: scale(1.2);
+  color: var(--bs-cyan)
 }
 
 /* INDEX PAGE */
@@ -89,14 +109,76 @@ header h1 {
 }
 
 /* SHOW PAGE */
+#show-main {
+  background-image: url(https://previews.123rf.com/images/red33/red331302/red33130200013/17904433-%E3%82%B9%E3%83%9D%E3%83%BC%E3%83%84%E3%81%AE%E3%82%B7%E3%83%BC%E3%83%A0%E3%83%AC%E3%82%B9%E3%81%AA%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3-%E3%83%99%E3%82%AF%E3%83%88%E3%83%AB.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: repeat;
+}
+
 .show-img {
   max-width: 250px;
+  width: 60%;
+  display: block;
+  margin: 0.5em auto;
+  box-shadow: 1px 1px 10px var(--bs-blue);
 }
 
 table, tr, td, thead {
-  border: 1px solid green;
   font-size: 0.9em;
+  background: rgba(255,255,255,0.6);
+  padding: 3px;
 }
+
+table {
+  margin: 0 auto;
+}
+
+/* The following Stack Overflow page helped me to come up with the below CSS necessary to resize my iframe dynamically: https://stackoverflow.com/questions/11122249/scale-iframe-css-width-100-like-an-image */
+
+.wrapper {
+  width: 80%; 
+  max-width: 600px; 
+  height: 100%; 
+  margin: 1em auto;
+  background: #ccc;
+}
+
+.h_iframe {
+  position: relative;
+  padding-top: 56%;
+}
+
+.h_iframe iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+button {
+  background: none;
+  border: none;
+}
+
+.btn-sm {
+  margin: 0.5em auto;
+  border: 1px solid #ccc;
+}
+
+a.btn-primary {
+  display: block;
+  width: fit-content;
+  margin: 0 auto;
+
+}
+
+.delete-form {
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+} 
 
 /* AT 400PX, CHANGE THE FOLLOWING: */
 @media (min-width: 600px) {

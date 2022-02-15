@@ -151,26 +151,11 @@ app.put('/venues/:id', (req, res) => {
   req.body.sTeams = req.body.sTeams.split(', ')
 
   req.body.links = {} // must initialize 'links' as a key of the data object before you can assign values to it!
-  if (req.body.website.length === 0) {
-    req.body.links.website = '#' // sets link to dummy link if no value provided
-  } else {
-    req.body.links.website = req.body.website
-  }
-  if (req.body.twitter.length === 0) {
-    req.body.links.twitter = '#'
-  } else {
-    req.body.links.twitter = req.body.twitter
-  }
-  if (req.body.fb.length === 0) {
-    req.body.links.fb = '#'
-  } else {
-    req.body.links.fb = req.body.fb
-  }
-  if (req.body.ig.length === 0) {
-    req.body.links.ig = '#'
-  } else {
-    req.body.links.ig = req.body.ig
-  }
+  req.body.links.website = req.body.website
+  req.body.links.twitter = req.body.twitter
+  req.body.links.fb = req.body.fb
+  req.body.links.ig = req.body.ig
+  
   Venue.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, foundVenue) => {
     res.redirect('/venues')
   })
