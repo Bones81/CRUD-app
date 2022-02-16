@@ -29,7 +29,19 @@
       >
       <label for="still-in-use">Venue still in use?</label><br/>
       <label for="primary-sport">Venue's primary sport </label>
-      <input type="text" name="pSport" value="<%=venue.pSport%>" size="15"><br/>
+      <select name="pSport" id="primary-sport">
+        <option value="default">--Choose a sport--</option>
+        <option value="Baseball">Baseball</option>
+        <option value="Basketball">Basketball</option>
+        <option value="Football">American football</option>
+        <option value="Soccer">Soccer/European football</option>
+        <option value="Hockey">Hockey</option>
+        <option value="Golf">Golf</option>
+        <option value="Olympics">Olympic Games</option>
+        <option value="default">Other</option>
+      </select><br/>
+      <!-- The following embedded JS should preset the dropdown menu to the originally selected pSport -->
+      
       <label for="venue-pTeam">Venue's primary team/tenant </label>
       <input type="text" name="pTeam" id="venue-pTeam" value="<%=venue.pTeam%>" size="30"><br/>
       <label for="venue-sSports">Other sports (separate multiple entries with a comma and space) </label>
@@ -61,6 +73,15 @@
       <input type="submit" value="UPDATE Venue with These Values">
     </form>
   </main>
-
+  <script>
+    const setSelectedIndex = (selectEl, targetValue) => {
+      for (let i = 0; i < selectEl.options.length; i++) {
+        if (selectEl.options[i].value === targetValue) {
+          selectEl.options[i].selected = "selected";
+        }
+      }
+    }
+    setSelectedIndex(document.getElementById("primary-sport"), '<%=venue.pSport%>')
+  </script>
 </body>
 </html>

@@ -32,7 +32,18 @@
       <label for="still-in-use">Venue still in use?</label><br/>
 
       <label for="primary-sport">Venue's primary sport </label>
-      <input type="text" name="pSport" placeholder="baseball" size="15"><br/>
+      <select name="pSport" id="primary-sport">
+        <option value="default">--Choose a sport--</option>
+        <option value="Baseball">Baseball</option>
+        <option value="Basketball">Basketball</option>
+        <option value="Football">American football</option>
+        <option value="Soccer">Soccer/European football</option>
+        <option value="Hockey">Hockey</option>
+        <option value="Golf">Golf</option>
+        <option value="Olympics">Olympic Games</option>
+        <option value="default">Other</option>
+      </select><br/>
+      
 
       <label for="venue-pTeam">Venue's primary team/tenant </label>
       <input type="text" name="pTeam" id="venue-pTeam" placeholder="St. Louis Cardinals" size="30"><br/>
@@ -61,7 +72,8 @@
       <label for="venue-highlight">YouTube link to historic moment(s) that occurred at this venue </label>
       <input type="url" name="highlightURL" id="venue-highlight" placeholder="https://youtu.be/fJ86nJR9aFw" size="30"><br/>
 
-      <!-- <label for="venue-mapsURL">Google Maps link </label>
+      <!-- No longer needed after implementing Maps API:
+      <label for="venue-mapsURL">Google Maps link </label>
       <input type="url" name="mapsURL" id="venue-mapsURL" placeholder="https://www.google.com/maps/place/Busch+Stadium/@38.6227225,-90.1948363,589m/data=!3m1!1e3!4m5!3m4!1s0x87d8b31b440bcf17:0xa57962d7e3509f27!8m2!3d38.6226188!4d-90.1928209?hl=en" size="50"><br/> -->
 
       <label for="venue-website">Venue Website </label>

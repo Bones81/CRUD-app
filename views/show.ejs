@@ -9,8 +9,8 @@
   </header>
   <main id="show-main"
     <% 
-      const sportArray = ['football','hockey','soccer','baseball','basketball','golf','olympics'];
-    if (sportArray.includes(venue.pSport.toLowerCase())) { %>
+      const sportArray = ['Football','Hockey','Soccer','Baseball','Basketball','Golf','Olympics'];
+    if (sportArray.includes(venue.pSport)) { %>
       style="background-image:url('/img/<%=venue.pSport.toLowerCase()%>.jpeg')"
     <% } %>
   >
