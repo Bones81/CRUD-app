@@ -11,7 +11,7 @@
     <% 
       const sportArray = ['Football','Hockey','Soccer','Baseball','Basketball','Golf','Olympics','Tennis'];
     if (sportArray.includes(venue.pSport)) { %>
-      style="background-image:url('/img/<%=venue.pSport%>.jpeg')"
+      style="background-image:url('/img/<%=venue.pSport.toLowerCase()%>.jpeg')"
     <% } %>
   >
     <h2 class="page-title"><%=venue.name%></h2>
