@@ -119,6 +119,7 @@ header li:hover {
 /* INDEX PAGE */
 #index-main {
   text-align: center;
+  margin: 0 auto 1em;
 }
 
 .page-title {
@@ -145,7 +146,8 @@ header li:hover {
 }
 
 .card-content-wrapper {
-  background: rgba(255,255,255,0.6);
+  background: rgba(255,255,255,0.8);
+  border: 1px solid var(--bs-body-color);
   width: fit-content;
   margin: 0 auto;
   padding: 0.5em;
@@ -159,6 +161,10 @@ header li:hover {
 
 .card img {
   max-width: 250px;
+}
+
+.show-on-widescreen {
+  display: none;
 }
 
 /* SHOW PAGE */
@@ -217,42 +223,139 @@ table {
 button {
   background: none;
   border: none;
+  color: var(--bs-light);
 }
 
 .btn-sm {
-  margin: 0.5em auto;
+  /* margin: 0.5em auto; */
   border: 1px solid #ccc;
 }
 
 a.btn-primary {
   display: block;
   width: fit-content;
-  margin: 0 auto;
+  margin: 0.5em auto;
+  transition: all .15s;
+}
 
+a.btn-primary:hover {
+  transform: scale(1.2);
 }
 
 .delete-form {
-  width: 90%;
-  margin: 0 auto;
+  display: grid;
+  place-items: center;
+  width: fit-content;
+  margin: 0.5em auto;
   text-align: center;
+  transition: all .15s;
 } 
+
+.delete-form:hover {
+  transform: scale(1.2);
+}
+
+.btn-danger {
+  height: 100%;
+}
 
 /* NEW/EDIT FORMS */
 form {
   font-size: calc(0.75rem);
 }
 
-/* AT 400PX, CHANGE THE FOLLOWING: */
+/* AT 600PX, CHANGE THE FOLLOWING: */
 @media (min-width: 600px) {
   .extra-img:nth-of-type(2n) {
     display: inline;
   }
 
+  .card {
+    margin: 0.5em auto;
+  }
+  .card-content-flex-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    padding: 1em;
+  }
+
+  .card-img {
+    /* flex-basis: 40%; */
+    width: 40%;
+    object-fit: cover;
+  }
+
+  .card-content-wrapper {
+    max-width: 60%;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+  }
+
+  #show-main {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 1em;
+  }
+
+  #show-main h2 {
+    flex-basis: 100%;
+  }
+
+  .show-img-wrapper {
+    flex-basis: 100%;
+    display: flex;
+    flex-flow: row wrap;
+  }
+
+  .show-img {
+    max-width: 250px;
+  }
+  
+  #show-main table {
+    flex-basis: 70%;
+    font-size: calc(1rem + .4vw);
+  }
+
+  #show-main .wrapper {
+    flex-basis: 80%;
+  }
+
+  .delete-form, a.btn-primary {
+    margin: 0;
+  }
+
+  .buttons {
+    flex-basis: 100%;
+    padding-bottom: 1em;
+    display: flex;
+    flex-flow: row wrap;
+    gap: 1em;
+    justify-content: space-evenly;
+  }
 }
 
 /* AT 800PX, CHANGE THE FOLLOWING: */
 @media (min-width: 800px) {
   .extra-img {
+    display: inline;
+  }
+
+  .show-img {
+    max-width: 300px;
+  }
+
+  #show-main table {
+    font-size: calc(1.25rem + .6vw);
+  }
+}
+
+/* AT 1200PX, CHANGE THE FOLLOWING: */
+@media (min-width: 1200px) {
+  .show-on-widescreen {
     display: inline;
   }
 }

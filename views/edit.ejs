@@ -38,10 +38,9 @@
         <option value="Hockey">Hockey</option>
         <option value="Golf">Golf</option>
         <option value="Olympics">Olympic Games</option>
+        <option value="Tennis">Tennis</option>
         <option value="default">Other</option>
       </select><br/>
-      <!-- The following embedded JS should preset the dropdown menu to the originally selected pSport -->
-      
       <label for="venue-pTeam">Venue's primary team/tenant </label>
       <input type="text" name="pTeam" id="venue-pTeam" value="<%=venue.pTeam%>" size="30"><br/>
       <label for="venue-sSports">Other sports (separate multiple entries with a comma and space) </label>
@@ -74,6 +73,7 @@
     </form>
   </main>
   <script>
+    <!-- The following site helped me write the logic below to pre-populate the select fields with the correct value. https://www.daftlogic.com/information-programmatically-preselect-dropdown-using-javascript.htm -->
     const setSelectedIndex = (selectEl, targetValue) => {
       for (let i = 0; i < selectEl.options.length; i++) {
         if (selectEl.options[i].value === targetValue) {
