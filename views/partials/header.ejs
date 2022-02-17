@@ -13,22 +13,23 @@
     <input type="search" name="searchString" id="searchbar">
     <input type="submit" value="Begin search">
   </form>
-  <!-- <form action="/venues/sort" method="post">
-    <select name="" id="">
-      <option value="">-- Choose sort criteria --</option>
-      <option value="">Venue name</option>
-      <option value="">Type (stadium, arena, etc.)</option>
-      <option value="">Year built</option>
-      <option value="">Capacity</option>
-      <option value="">Cost to build</option>
-      <option value="">Nickname</option>
-      <option value="">Primary sport</option>
-      <option value="">Primary team/user</option>
-      <option value="">Secondary sports</option>
-      <option value="">Secondary teams/users</option>
-      <option value="">City</option>
-      <option value="">State</option>
-      <option value="">Country</option>
+  <form action="/venues/sort" method="post" id="sort-form">
+    <select name="sortChoice" id="sort-choice-dropdown">
+      <option value="default">-- Choose sort criteria --</option>
+      <option value="name">Venue name</option>
+      <option value="type">Type (stadium, arena, etc.)</option>
+      <option value="year">Year built</option>
+      <option value="capacity">Capacity</option>
+      <option value="cost">Cost to build</option>
+      <!-- <option value="nicknames">Nickname</option> -->
+      <option value="pSport">Primary sport</option>
+      <option value="pTeam">Primary team/user</option>
+      <!-- <option value="sSports">Secondary sports</option>
+      <option value="sTeams">Secondary teams/users</option> -->
+      <option value="city">City</option>
+      <option value="state">State</option>
+      <option value="country">Country</option>
     </select>
-  </form> -->
+    <input type="submit" value="Begin Sort">
+  </form>
 </nav>

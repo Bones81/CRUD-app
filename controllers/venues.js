@@ -129,5 +129,29 @@ router.post('/venues/search', (req, res) => {
   })
 })
 
+//SORT ROUTE
+router.post('/venues/sort', (req, res) => {
+  // res.send(req.body.sortChoice)
+  Venue.find({}, (err, venues) => {
+    venues.sort((a, b) => {
+      const aCompareValue = a[req.body.sortChoice]
+      const bCompareValue = b[req.body.sortChoice]
+      
+      if (aCompareValue > bCompareValue) {
+        return 1
+      } else if (aCompareValue < bCompareValue) {
+        return -1
+      } else {
+        return 0
+      }
+    })
+    res.render('index.ejs', {
+      tabTitle: 'Sort results',
+      venues: venues,
+      venuesCount: venues.length
+    })
+  })
+})
+
 
 module.exports = router
