@@ -116,6 +116,11 @@ header li:hover {
   transform: scale(1.2);
 }
 
+#search-form {
+  text-align: center;
+  padding: 0.5em;
+}
+
 /* INDEX PAGE */
 #index-main {
   text-align: center;
@@ -142,6 +147,7 @@ header li:hover {
   background-size: contain;
   background-position: center;
   background-repeat: repeat;
+  margin: 0.5em auto;
 
 }
 

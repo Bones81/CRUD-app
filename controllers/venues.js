@@ -1,4 +1,5 @@
-const express = require('express')
+const express = require('express');
+const { db } = require('../models/venue.js');
 const router = express.Router();
 const Venue = require('../models/venue.js')
 
@@ -107,9 +108,24 @@ router.put('/venues/:id', (req, res) => {
   })
 })
 
+//DELETE ROUTE
 router.delete('/venues/:id', (req, res) => {
   Venue.findByIdAndRemove(req.params.id, (err, droppedVenue) => {
     res.redirect('/venues')
+  })
+})
+
+//SEARCH ROUTE
+router.post('/venues/search', (req, res) => {
+  Venue.collection.createIndex( { "$**": "text"} )
+  
+  Venue.find({ $text: { $search: req.body.searchString} }, (err, searchResults) => {
+    res.render('index.ejs', {
+      tabTitle: 'Search results',
+      venues: searchResults,
+      venuesCount: searchResults.length
+    })
+    
   })
 })
 
