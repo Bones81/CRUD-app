@@ -21,7 +21,9 @@
         >
           <a href="/venues/<%=venue.id%>">
             <div class="card-content-flex-container">
+              <% if (venue.outsideImg !== '') { %>
               <img class="card-img" src="<%=venue.outsideImg%>" alt="pic of <%=venue.name%>">
+              <% } %>
               <div class="card-content-wrapper">
                 <h3><%=venue.name%></h3>
                 <h4>Built: <%=venue.year%></h4>
