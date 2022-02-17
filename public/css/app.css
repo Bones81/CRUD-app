@@ -223,7 +223,7 @@ table {
 .sticky-footer-spacer {
   height: 10%;
   width: 100%;
-  margin-bottom: 10vh;
+  padding-bottom: 12vh;
 }
 
 .buttons {
