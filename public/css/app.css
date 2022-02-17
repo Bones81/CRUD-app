@@ -58,13 +58,17 @@
 
 /* HEADER */
 header {
-  background: linear-gradient(225deg, lightgreen, var(--bs-cyan))
+  background: linear-gradient(225deg, lightgreen, var(--bs-cyan));
+  position: sticky;
+  top: 0;
+  z-index: 99;
 }
 .header-wrapper {
   display: flex;
   flex-flow: row wrap;
   align-items: center;
   justify-content: space-around;
+  padding-top: 1em;
 }
 
 header img {
@@ -118,7 +122,7 @@ header li:hover {
 
 #search-form, #sort-form {
   text-align: center;
-  padding: 0.5em;
+  padding-bottom: 0.5em;
 }
 
 /* INDEX PAGE */
