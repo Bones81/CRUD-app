@@ -86,8 +86,8 @@ router.get('/venues/:id/edit', (req, res) => {
 // UPDATE ROUTE
 router.put('/venues/:id', (req, res) => {
   //reformat form data to match schema
-  req.body.capacity = Number(req.body.capacity)
-  req.body.cost = Number(req.body.cost)
+  // req.body.capacity = Number(req.body.capacity)
+  // req.body.cost = Number(req.body.cost)
   req.body.nicknames = req.body.nicknames.split(', ')
   if(req.body.stillExists === "on") {
     req.body.stillExists = true 
@@ -117,8 +117,8 @@ router.delete('/venues/:id', (req, res) => {
 
 //SEARCH ROUTE
 router.post('/venues/search', (req, res) => {
+  // This SO article helped me understand how to implement text search over the entire collection: https://stackoverflow.com/questions/47929774/optimization-find-on-all-fields-in-mongoose-mongodb-schema
   Venue.collection.createIndex( { "$**": "text"} )
-  
   Venue.find({ $text: { $search: req.body.searchString} }, (err, searchResults) => {
     res.render('index.ejs', {
       tabTitle: 'Search results',
@@ -134,9 +134,40 @@ router.post('/venues/sort', (req, res) => {
   // res.send(req.body.sortChoice)
   Venue.find({}, (err, venues) => {
     venues.sort((a, b) => {
-      const aCompareValue = a[req.body.sortChoice]
-      const bCompareValue = b[req.body.sortChoice]
-      
+      let aCompareValue = a[req.body.sortChoice]
+      let bCompareValue = b[req.body.sortChoice]
+      //The below logic converts string value of year, cost, and capacity fields into numerically comparable fields, since numbers don't compare properly when they are read as strings.
+      if (req.body.sortChoice === 'year' || 
+          req.body.sortChoice === "cost" || 
+          req.body.sortChoice === "capacity") {
+        // This blog post helped me understand how to remove commas from numbers-as-strings: https://bobbyhadz.com/blog/javascript-parse-string-with-comma-to-number
+        let aScrubbedValue = aCompareValue.replace(/,/g, '') 
+        let bScrubbedValue = bCompareValue.replace(/,/g, '')
+        aScrubbedValue = aScrubbedValue.split(' ')[0]
+        bScrubbedValue = bScrubbedValue.split(' ')[0]
+        aScrubbedValue = Number(aScrubbedValue)
+        bScrubbedValue = Number(bScrubbedValue)
+        // console.log(a.name + '\'s comma-removed, split, and Numbered value is: ' + aScrubbedValue)
+        // console.log(b.name + '\'s comma-removed, split, and Numbered value is: ' + bScrubbedValue)
+        aScrubbedValue = aScrubbedValue || 0 // converts any falsey value (like NaN) to 0; found this solution via https://stackoverflow.com/questions/7540397/convert-nan-to-0-in-javascript
+        bScrubbedValue = bScrubbedValue || 0 // converts any falsey value to 0
+        
+        if (aCompareValue.includes('million')) {
+          aScrubbedValue *= 1000000
+        } else if (aCompareValue.includes('billion')) {
+          aScrubbedValue *= 1000000000
+        }
+        if (bCompareValue.includes('million')) {
+          bScrubbedValue *= 1000000
+        } else if (bCompareValue.includes('billion')) {
+          bScrubbedValue *= 1000000000
+        }
+        // console.log(a.name + "\'s aScrubbedValue is: " + aScrubbedValue)
+        // console.log(b.name + "\'s bScrubbedValue is: " + bScrubbedValue)
+        aCompareValue = aScrubbedValue
+        bCompareValue = bScrubbedValue
+      } // This line ends the conversion of string values into numbers for year, cost, and capacity fields. 
+
       if (aCompareValue > bCompareValue) {
         return 1
       } else if (aCompareValue < bCompareValue) {
@@ -152,6 +183,5 @@ router.post('/venues/sort', (req, res) => {
     })
   })
 })
-
 
 module.exports = router
