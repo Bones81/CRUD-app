@@ -50,8 +50,6 @@ router.get('/venues/:id', (req, res) => {
 // CREATE ROUTE
 router.post('/venues', (req, res) => {
   //reformat form data to match schema
-  req.body.capacity = Number(req.body.capacity)
-  req.body.cost = Number(req.body.cost)
   req.body.nicknames = req.body.nicknames.split(', ')
   if(req.body.stillExists === "on") {
     req.body.stillExists = true 
@@ -86,8 +84,7 @@ router.get('/venues/:id/edit', (req, res) => {
 // UPDATE ROUTE
 router.put('/venues/:id', (req, res) => {
   //reformat form data to match schema
-  // req.body.capacity = Number(req.body.capacity)
-  // req.body.cost = Number(req.body.cost)
+
   req.body.nicknames = req.body.nicknames.split(', ')
   if(req.body.stillExists === "on") {
     req.body.stillExists = true 

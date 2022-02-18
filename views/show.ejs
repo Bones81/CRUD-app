@@ -177,10 +177,10 @@
     <div class="sticky-footer-spacer"></div>
     <div class="buttons">
       <!-- Edit button -->
-      <a class="btn btn-primary" href="/venues/<%=venue.id%>/edit"><button>Edit Venue</button></a>
+      <a class="btn btn-primary" href="/venues/<%=venue.id%>/edit"><button>Edit <%=venue.name%></button></a>
       <!-- DELETE button -->
       <form class="delete-form" action="/venues/<%=venue.id%>?_method=DELETE" method="POST">
-        <input class="btn btn-sm btn-danger" type="submit" value="DELETE venue (cannot be undone)">
+        <input class="btn btn-sm btn-danger" type="submit" value="DELETE <%=venue.name%> (cannot be undone)">
       </form>
     </div>
 

@@ -8,7 +8,7 @@
     <%- include('./partials/header.ejs')%>
   </header>
   <main id="edit-main">
-    <h2 class="page-title">Add a New Venue</h2>
+    <h2 class="page-title">Edit <%=venue.name%></h2>
     <form action="/venues/<%=venue._id%>?_method=PUT" method="POST">
       <label for="venue-name">Name of Venue (required) </label>
       <input type="text" name="name" id="venue-name" value="<%=venue.name%>" size="30"><br/>
@@ -69,7 +69,7 @@
       <input type="text" name="fb" id="venue-fb" value="<%=venue.links.fb%>" size="20"><br/>
       <label for="venue-ig">Venue Instagram handle @</label>
       <input type="text" name="ig" id="venue-ig" value="<%=venue.links.ig%>" size="20"><br/>
-      <input type="submit" value="UPDATE Venue with These Values">
+      <input type="submit" class="update-btn btn btn-sm btn-primary" value="UPDATE <%=venue.name%> with These Values">
     </form>
   </main>
   <script>
